@@ -1,0 +1,318 @@
+<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style>
+<title>uni-k para arquitetos · Complementares em BIM</title>
+<meta name="description" content="Complementares em BIM integrados ao seu projeto de arquitetura: compatibilização antes da obra, um só interlocutor técnico e modelo 3D para apresentar ao seu cliente.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="uni-k para arquitetos · Complementares em BIM">
+<meta property="og:description" content="Complementares em BIM integrados ao seu projeto de arquitetura: compatibilização antes da obra, um só interlocutor técnico e modelo 3D para apresentar ao seu cliente.">
+<meta property="og:url" content="https://uni-kprojetos.github.io/divulgacao/arquitetos/">
+<meta property="og:image" content="https://uni-kprojetos.github.io/divulgacao/arquitetos/og.jpg">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:locale" content="pt_BR">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="../assets/logo-unik.png">
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800;900&family=Inter:wght@400;500;600&display=swap">
+</head><body>
+<style>
+/* Card de apresentação uni-k (versão arquitetos). Layout: uma tela só, como no croqui — topo com a marca; à esquerda três capas (2 vídeos e o modelo 3D) que abrem sobre a página; à direita o título, o texto e as disciplinas; embaixo a faixa "Vamos conversar" com os três botões. */
+:root {
+  --bg: #FFFFFF;
+  --surface: #F3F5F9;
+  --ink: #001736;
+  --ink-2: #47566B;
+  --line: #D5DBE4;
+  --accent: #D9530A;
+  --on-color: #FFFFFF;
+  --ig-1: #F58529; --ig-2: #DD2A7B; --ig-3: #8134AF;
+  --li: #0A66C2;
+  --wa: #1FA855;
+  --scrim: rgba(0, 10, 25, .86);
+  --logo-filter: none;
+  --display: 'Archivo', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  --body: 'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  --mono: ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #001229; --surface: #0A2140; --ink: #F2F5FA; --ink-2: #B4C1D4; --line: #1E3859;
+    --accent: #F26B1D; --logo-filter: invert(1); color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #001229; --surface: #0A2140; --ink: #F2F5FA; --ink-2: #B4C1D4; --line: #1E3859;
+  --accent: #F26B1D; --logo-filter: invert(1); color-scheme: dark;
+}
+* { box-sizing: border-box; }
+[hidden] { display: none !important; }
+body { background: var(--bg); color: var(--ink); font-family: var(--body); font-size: 15px; line-height: 1.5; }
+.wrap { max-width: 1120px; margin-inline: auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); padding-block: 18px 22px; display: grid; gap: 22px 40px; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); grid-template-areas: "top top" "cards text" "cta cta"; }
+.top { grid-area: top; display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; padding-bottom: 12px; border-bottom: 2px solid var(--ink); }
+.logo { display: block; width: 104px; height: auto; aspect-ratio: 757 / 354; filter: var(--logo-filter); }
+.label { font-family: var(--display); font-weight: 700; font-size: 11.5px; letter-spacing: .12em; text-transform: uppercase; color: var(--ink-2); }
+p { margin: 0; }
+
+/* capas */
+.cards { grid-area: cards; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; align-content: start; }
+.card { display: flex; flex-direction: column; gap: 8px; padding: 0; border: 0; background: none; color: inherit; font: inherit; text-align: left; cursor: pointer; min-width: 0; }
+.thumb { position: relative; display: block; width: 100%; aspect-ratio: 3 / 4; border-radius: 10px; overflow: hidden; background: #0c1320; }
+.thumb img { display: block; width: 100%; height: 100%; object-fit: cover; transition: transform .3s ease; }
+.thumb.model img { object-position: 58% 50%; }
+.card:hover .thumb img { transform: scale(1.04); }
+.card:focus-visible { outline: 3px solid var(--accent); outline-offset: 4px; border-radius: 10px; }
+.play { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); width: 54px; height: 54px; border-radius: 50%; background: var(--accent); color: var(--on-color); display: grid; place-items: center; box-shadow: 0 6px 18px rgba(0, 0, 0, .45); }
+.play svg { width: 24px; height: 24px; }
+.kind { position: absolute; left: 8px; top: 8px; padding: 3px 7px; border-radius: 4px; background: rgba(0, 10, 25, .72); color: #FFFFFF; font-family: var(--mono); font-size: 10.5px; font-weight: 600; letter-spacing: .04em; }
+.card b { font-family: var(--display); font-weight: 800; font-size: 15px; line-height: 1.2; }
+.card small { font-size: 12.5px; color: var(--ink-2); line-height: 1.35; }
+
+.col3 { display: flex; flex-direction: column; gap: 10px; min-width: 0; }
+.qr { display: flex; align-items: center; gap: 10px; padding: 8px; border: 1px solid var(--line); border-radius: 10px; color: var(--ink); text-decoration: none; min-width: 0; }
+.qr:hover { border-color: var(--accent); }
+.qr:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+.qr img { width: 76px; height: 76px; flex: none; border-radius: 4px; background: #FFFFFF; }
+.qr span { display: flex; flex-direction: column; gap: 2px; min-width: 0; line-height: 1.25; }
+.qr b { font-family: var(--display); font-weight: 800; font-size: 13.5px; }
+.qr small { font-size: 12px; color: var(--ink-2); }
+
+/* texto */
+.text { grid-area: text; min-width: 0; display: flex; flex-direction: column; gap: 14px; }
+h1 { font-family: var(--display); font-weight: 900; font-size: clamp(28px, 3.6vw, 40px); line-height: 1.04; letter-spacing: -0.015em; margin: 0; text-wrap: balance; }
+h1 span { color: var(--accent); }
+.lede { max-width: 48ch; color: var(--ink-2); font-size: 15.5px; }
+.disc { display: flex; flex-direction: column; gap: 6px; }
+.disc ul { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 18px; border-top: 1px solid var(--line); }
+.disc li { display: flex; gap: 10px; align-items: baseline; padding: 5px 0; border-bottom: 1px solid var(--line); font-size: 13.5px; min-width: 0; }
+.disc code { font-family: var(--mono); font-size: 11px; font-weight: 600; color: var(--accent); min-width: 38px; }
+
+/* vamos conversar */
+.cta { grid-area: cta; display: flex; flex-direction: column; gap: 12px; padding: 16px 18px; border: 2px solid var(--ink); border-radius: 12px; }
+.cta-row { display: flex; align-items: center; justify-content: space-between; gap: 8px 16px; flex-wrap: wrap; }
+h2 { font-family: var(--display); font-weight: 800; font-size: 20px; line-height: 1.2; margin: 0; }
+.mail { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; font-size: 13.5px; color: var(--ink-2); }
+.mail b { color: var(--ink); font-weight: 600; user-select: all; overflow-wrap: anywhere; }
+.copy { min-height: 30px; padding: 0 10px; background: transparent; color: var(--ink); border: 1px solid var(--line); border-radius: 6px; font: 600 12.5px var(--body); cursor: pointer; }
+.copy:focus-visible { outline: 3px solid var(--ink); outline-offset: 2px; }
+.social { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px; }
+@media (max-width: 860px) { .social { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.sbtn { display: flex; align-items: center; gap: 10px; min-height: 50px; padding: 8px 14px; border-radius: 9px; color: var(--on-color); text-decoration: none; box-shadow: 0 5px 14px -8px rgba(0, 23, 54, .6); transition: transform .15s ease; min-width: 0; }
+.sbtn:hover { transform: translateY(-2px); }
+.sbtn:focus-visible { outline: 3px solid var(--ink); outline-offset: 3px; }
+.sbtn svg { width: 22px; height: 22px; flex: none; }
+.sbtn .t { display: flex; flex-direction: column; line-height: 1.15; min-width: 0; }
+.sbtn b { font-family: var(--display); font-weight: 800; font-size: 15.5px; }
+.sbtn small { font-size: 12px; opacity: .92; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.site { background: var(--accent); }
+.ig { background: linear-gradient(115deg, var(--ig-1), var(--ig-2) 55%, var(--ig-3)); }
+.li { background: var(--li); }
+.wa { background: var(--wa); }
+.perks { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 6px; }
+.perks li { display: flex; gap: 10px; align-items: baseline; font-size: 14px; }
+.perks li::before { content: ""; flex: none; width: 8px; height: 8px; border-radius: 2px; background: var(--accent); transform: translateY(-1px); }
+.foot { font-size: 12px; color: var(--ink-2); display: flex; gap: 4px 16px; flex-wrap: wrap; }
+
+/* janela sobre a página */
+.overlay { position: fixed; inset: 0; z-index: 50; background: var(--scrim); display: flex; align-items: center; justify-content: center; padding-top: calc(56px + env(safe-area-inset-top, 0px)); padding-bottom: calc(16px + env(safe-area-inset-bottom, 0px)); padding-left: max(12px, env(safe-area-inset-left, 0px)); padding-right: max(12px, env(safe-area-inset-right, 0px)); }
+.overlay video { display: block; max-width: 100%; max-height: 100%; width: auto; height: 100%; aspect-ratio: 9 / 16; background: #000; border-radius: 10px; }
+.overlay iframe { display: block; width: min(1400px, 100%); height: 100%; border: 0; border-radius: 10px; background: #12161d; }
+.vmsg { position: absolute; left: 50%; bottom: calc(28px + env(safe-area-inset-bottom, 0px)); transform: translateX(-50%); padding: 8px 14px; border-radius: 8px; background: rgba(0, 10, 25, .8); color: #FFFFFF; font: 600 14px var(--body); white-space: nowrap; }
+.close { position: fixed; z-index: 51; top: calc(10px + env(safe-area-inset-top, 0px)); right: max(12px, env(safe-area-inset-right, 0px)); display: inline-flex; align-items: center; gap: 8px; min-height: 40px; padding: 0 16px; border: 0; border-radius: 20px; background: #FFFFFF; color: #001736; font: 700 14px var(--body); cursor: pointer; }
+.close:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+.otitle { position: fixed; z-index: 51; top: calc(18px + env(safe-area-inset-top, 0px)); left: max(16px, env(safe-area-inset-left, 0px)); right: 120px; color: #FFFFFF; font-family: var(--display); font-weight: 800; font-size: 15px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+@media (max-width: 860px) {
+  .wrap { grid-template-columns: minmax(0, 1fr); grid-template-areas: "top" "text" "cards" "cta"; gap: 18px; }
+  .disc { order: 3; }
+}
+@media (max-width: 560px) {
+  .cards { gap: 8px; }
+  .card b { font-size: 13px; }
+  .card small { font-size: 11.5px; }
+  .play { width: 40px; height: 40px; }
+  .play svg { width: 18px; height: 18px; }
+  .qr { flex-direction: column; align-items: flex-start; padding: 6px; }
+  .qr img { width: 100%; height: auto; max-width: 96px; }
+  .social { grid-template-columns: minmax(0, 1fr); }
+  .disc ul { grid-template-columns: minmax(0, 1fr); }
+}
+@media (prefers-reduced-motion: reduce) { .thumb img, .sbtn { transition: none; } .card:hover .thumb img, .sbtn:hover { transform: none; } }
+</style>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-web" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="M3 12h18"></path><path d="M12 3c2.8 3 2.8 15 0 18c-2.8-3-2.8-15 0-18z"></path></symbol>
+  <symbol id="i-ig" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><circle cx="17.3" cy="6.7" r="1" fill="currentColor" stroke="none"></circle></symbol>
+  <symbol id="i-li" viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5a2.5 2.5 0 0 1 0-5zM3 9.75h4v11H3zM9.5 9.75h3.8v1.6h.06c.53-1 1.84-1.95 3.78-1.95c4.04 0 4.86 2.5 4.86 5.76v5.59h-4v-4.95c0-1.18-.02-2.7-1.75-2.7c-1.75 0-2.02 1.29-2.02 2.62v5.03h-4z"></path></symbol>
+  <symbol id="i-wa" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.2a9.7 9.7 0 0 0-8.4 14.6L2.3 21.7l5-1.3A9.7 9.7 0 1 0 12 2.2zm0 17.6a7.9 7.9 0 0 1-4-1.1l-.3-.2-3 .8.8-2.9-.2-.3A7.9 7.9 0 1 1 12 19.8zm4.4-5.9c-.2-.1-1.4-.7-1.7-.8-.2-.1-.4-.1-.5.1l-.8.9c-.1.2-.3.2-.5.1a6.5 6.5 0 0 1-3.2-2.8c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.7-1.8c-.2-.5-.4-.4-.5-.4h-.5a.9.9 0 0 0-.7.3 2.8 2.8 0 0 0-.9 2.1 4.9 4.9 0 0 0 1 2.6 11.2 11.2 0 0 0 4.3 3.8c1.6.7 2.2.7 3 .6a2.6 2.6 0 0 0 1.7-1.2 2.1 2.1 0 0 0 .2-1.2c-.1-.1-.2-.2-.4-.3z"/></symbol>
+  <symbol id="i-play" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.5v13l11-6.5z"></path></symbol>
+  <symbol id="i-cube" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l9 5v10l-9 5l-9-5V7z"></path><path d="M3 7l9 5l9-5"></path><path d="M12 12v10"></path></symbol>
+</svg>
+
+<div class="wrap">
+  <header class="top">
+    <img class="logo" src="../assets/logo-unik.png" alt="uni-k Projetos Integrados" width="757" height="354">
+    <div class="label">Complementares em BIM para arquitetos</div>
+  </header>
+
+  <section class="cards" aria-label="Vídeos e modelo 3D">
+    <button class="card" type="button" data-video="../assets/criativo-unik.mp4" data-title="Apresentação uni-k">
+      <span class="thumb"><img src="../assets/capa-noite.jpg" alt=""><span class="kind">VÍDEO · 55 s</span><span class="play"><svg aria-hidden="true"><use href="#i-play"></use></svg></span></span>
+      <b>Apresentação uni-k</b><small>Como trabalhamos, com som e legendas</small>
+    </button>
+    <button class="card" type="button" data-video="../assets/hotel-unik.mp4" data-title="Hotel Sofistic · Gramado/RS">
+      <span class="thumb"><img src="../assets/capa-hotel-noite.jpg" alt=""><span class="kind">VÍDEO · 70 s</span><span class="play"><svg aria-hidden="true"><use href="#i-play"></use></svg></span></span>
+      <b>Hotel Sofistic, Gramado</b><small>Obra parada há 10 anos, retomada com todos os projetos</small>
+    </button>
+    <div class="col3">
+    <button class="card" type="button" data-model="https://uni-kprojetos.github.io/Alphaville/" data-title="Visualizador BIM Integrado">
+        <span class="thumb model"><img src="../assets/alphaville-3d.jpg" alt=""><span class="kind">MODELO 3D</span><span class="play"><svg aria-hidden="true"><use href="#i-cube"></use></svg></span></span>
+        <b>Visualizador BIM Integrado</b><small>Arquitetura e complementares no mesmo modelo. Gire, corte e clique</small>
+      </button>
+      <a class="qr" href="https://uni-kprojetos.github.io/Alphaville/" target="_blank" rel="noopener">
+        <img src="../assets/qr-alphaville.png" alt="QR code do visualizador BIM" width="984" height="984">
+        <span><b>Abra no celular</b><small>Aponte a câmera para o QR code</small></span>
+      </a>
+    </div>
+  </section>
+
+  <section class="text">
+    <h1>Seu projeto chega à obra <span>como você desenhou</span></h1>
+    <p class="lede">A uni-k desenvolve os projetos complementares em BIM integrados ao seu modelo de arquitetura. As interferências são resolvidas no projeto, não no canteiro, e o partido arquitetônico chega intacto à obra.</p>
+    <ul class="perks">
+      <li>Compatibilização com a sua arquitetura desde o estudo</li>
+      <li>Um só interlocutor técnico para todas as disciplinas, com ART/RRT por disciplina</li>
+      <li>Modelo 3D integrado para você apresentar ao seu cliente</li>
+    </ul>
+    <div class="disc">
+      <div class="label">Disciplinas que entregamos</div>
+      <ul>
+                <li><code>EST</code>Estrutural</li>
+        <li><code>HID</code>Hidrossanitário</li>
+        <li><code>ELE</code>Elétrico</li>
+        <li><code>SPDA</code>Proteção contra descargas</li>
+        <li><code>PPCI</code>Prevenção contra incêndio</li>
+        <li><code>GÁS</code>Gás natural e GLP</li>
+        <li><code>CLI</code>Climatização e renovação de ar</li>
+        <li><code>BIM</code>Compatibilização e visualizador 3D</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="cta" aria-labelledby="cta-h">
+    <div class="cta-row">
+      <h2 id="cta-h">Vamos conversar sobre o seu próximo projeto?</h2>
+      <div class="mail"><span>E-mail:</span> <b id="email">alan@uni-kprojetos.com.br</b> <button class="copy" id="copy" type="button">Copiar</button></div>
+    </div>
+    <nav class="social" aria-label="Contatos da uni-k">
+      <a class="sbtn wa" href="https://wa.me/5551999689622?text=Ol%C3%A1%2C%20Alan!%20Vi%20a%20apresenta%C3%A7%C3%A3o%20da%20uni-k%20e%20gostaria%20de%20conversar%20sobre%20um%20projeto." target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-wa"></use></svg><span class="t"><b>WhatsApp</b><small>(51) 99968-9622</small></span></a>
+      <a class="sbtn site" href="https://www.uni-kprojetos.com.br" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-web"></use></svg><span class="t"><b>Site</b><small>uni-kprojetos.com.br</small></span></a>
+      <a class="sbtn ig" href="https://www.instagram.com/uni_k.projetos/" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-ig"></use></svg><span class="t"><b>Instagram</b><small>@uni_k.projetos</small></span></a>
+      <a class="sbtn li" href="https://www.linkedin.com/in/alan-astor-einsfeldt-9a4023126/" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-li"></use></svg><span class="t"><b>LinkedIn</b><small>Arq. Alan Einsfeldt</small></span></a>
+    </nav>
+    <div class="foot"><span>Arq. Alan Einsfeldt · CAU-RS A35910-6</span><span>uni-k Projetos Integrados · Rolante · RS</span></div>
+  </section>
+</div>
+
+<div class="overlay" id="ov" hidden role="dialog" aria-modal="true" aria-labelledby="ovTitle">
+  <div class="otitle" id="ovTitle"></div>
+  <button class="close" id="ovClose" type="button">✕ Fechar</button>
+  <div id="ovBody" style="display:flex;align-items:center;justify-content:center;width:100%;height:100%;min-width:0"></div>
+</div>
+
+<script>
+(function () {
+  var ov = document.getElementById('ov'), body = document.getElementById('ovBody'), ttl = document.getElementById('ovTitle'), last = null;
+  function open(card) {
+    last = card;
+    body.innerHTML = '';
+    ttl.textContent = card.dataset.title || '';
+    if (card.dataset.video) {
+      playVideo(card.dataset.video);
+    } else {
+      var f = document.createElement('iframe');
+      f.src = card.dataset.model; f.title = card.dataset.title || 'Modelo 3D';
+      f.setAttribute('allow', 'fullscreen');
+      body.appendChild(f);
+    }
+    ov.hidden = false;
+    document.body.style.overflow = 'hidden';
+    document.getElementById('ovClose').focus();
+  }
+  // Vídeo: tenta o arquivo direto; se o navegador não conseguir (alguns celulares e redes
+  // não aceitam o streaming), baixa o vídeo inteiro e toca a partir da memória.
+  var blobs = {}, token = 0;
+  function msg(t) {
+    var m = body.querySelector('.vmsg');
+    if (!m) { m = document.createElement('div'); m.className = 'vmsg'; body.appendChild(m); }
+    m.textContent = t; m.hidden = !t;
+  }
+  function viaBlob(url, v, my) {
+    if (blobs[url]) { v.src = blobs[url]; v.play().catch(function () {}); return; }
+    msg('Carregando o vídeo… 0%');
+    fetch(url).then(function (r) {
+      if (!r.ok) throw new Error('HTTP ' + r.status);
+      var total = +r.headers.get('content-length') || 0;
+      if (!r.body || !r.body.getReader) return r.blob();
+      var rd = r.body.getReader(), parts = [], got = 0;
+      function pump() {
+        return rd.read().then(function (x) {
+          if (x.done) return new Blob(parts, { type: 'video/mp4' });
+          parts.push(x.value); got += x.value.length;
+          if (my === token) msg('Carregando o vídeo… ' + (total ? Math.round(got / total * 100) + '%' : Math.round(got / 1e6) + ' MB'));
+          return pump();
+        });
+      }
+      return pump();
+    }).then(function (b) {
+      blobs[url] = URL.createObjectURL(b.type ? b : new Blob([b], { type: 'video/mp4' }));
+      if (my !== token) return;
+      msg(''); v.onerror = function () { if (my === token) msg('Este navegador não reproduziu o vídeo. Tente abrir o link no Chrome ou no Safari.'); };
+      v.src = blobs[url]; v.play().catch(function () {});
+    }).catch(function () {
+      if (my === token) msg('Não foi possível carregar o vídeo. Verifique a conexão e tente de novo.');
+    });
+  }
+  function playVideo(url) {
+    var my = ++token, ok = false, fb = false;
+    var v = document.createElement('video');
+    v.controls = true; v.playsInline = true; v.setAttribute('playsinline', ''); v.preload = 'auto';
+    body.appendChild(v);
+    function fallback() { if (ok || fb || my !== token) return; fb = true; viaBlob(url, v, my); }
+    if (blobs[url]) { v.src = blobs[url]; ok = true; }
+    else {
+      v.addEventListener('loadedmetadata', function () { ok = true; });
+      v.addEventListener('error', fallback);
+      v.src = url;
+      setTimeout(fallback, 6000);
+    }
+    var p = v.play(); if (p && p.catch) p.catch(function () {});
+  }
+  function close() {
+    if (ov.hidden) return;
+    token++;
+    var v = body.querySelector('video'); if (v) { v.pause(); v.removeAttribute('src'); v.load(); }
+    body.innerHTML = '';
+    ov.hidden = true;
+    document.body.style.overflow = '';
+    if (last) last.focus();
+  }
+  [].forEach.call(document.querySelectorAll('.card'), function (c) { c.addEventListener('click', function () { open(c); }); });
+  document.getElementById('ovClose').addEventListener('click', close);
+  ov.addEventListener('click', function (e) { if (e.target === ov || e.target === body) close(); });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') close(); });
+  window.addEventListener('message', function (e) { if (e.data === 'uk-close') close(); });
+
+  var btn = document.getElementById('copy'), el = document.getElementById('email');
+  function selectIt() {
+    var r = document.createRange(); r.selectNodeContents(el);
+    var s = window.getSelection(); s.removeAllRanges(); s.addRange(r);
+    btn.textContent = 'Selecionado';
+  }
+  btn.addEventListener('click', function () {
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(el.textContent).then(function () { btn.textContent = 'Copiado'; }, selectIt);
+    } else { selectIt(); }
+    setTimeout(function () { btn.textContent = 'Copiar'; }, 2500);
+  });
+})();
+</script>
+
+</body></html>
